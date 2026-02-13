@@ -42,7 +42,7 @@
 ### b) Différence entre le modèle OSI et TCP/IP (2.5 pts)
 
 ```
-Votre réponse : Le modèle OSI à été créer après le TCP/IP. Le OSI a été créer pour être un modèle thoérique universel. Le TCP/Ip comporte 4 couches dont application et accès réseau qui en comprenne 3 et 2 respectivement pour un total de 7 comme le OSI.
+Votre réponse : Le modèle OSI est un modèle théorique en sept couches conçu pour expliquer et standardiser le fonctionnement des réseaux. Le modèle TCP/IP regroupe ces fonctions en quatre couches. OSI est surtout utilisé comme modèle pédagogique, tandis que TCP/IP représente l’architecture réelle utilisée dans les réseaux.
 ```
 
 ---
@@ -122,26 +122,14 @@ Votre réponse : Par défaut, DNS utilise le port 53 avec le protocole UDP. Ce c
 **Serveurs DNS configurés :**`10.255.255.254`
 
 > 📸 **Capture d'écran 1** : Insérez votre capture montrant la configuration réseau
-> 
-> ![alt text](ScreenShots/ip_addr_show.png)
-> 
->**Capture 1a – Résultat de la commande   `ip addr show` sous WSL**
->
->![alt text](ScreenShots/ip_route_show.png)
->
->**Capture 1b – Résultat de la commande   `ip route show` sous WSL**
->
->![alt text](ScreenShots/nslookuo_google.png)
->
->**Capture 1c – Résultat de la commande `nslookup www.google.com` sous WSL**
-
+> ![alt text](captures/capture1_config_reseau.png)
 ---
 
 ## Exercice 2 : Tests de connectivité avec ping (8 points)
 
 ### a) Ping vers localhost (127.0.0.1) - 4 paquets
 
-**Commande exacte utilisée :**`ping -c 4 127.0.0.1`
+**Commande exacte utilisée :**`ping -c 4 localhost`
 
 **Résultat (succès/échec) :** Succès
 
@@ -168,18 +156,7 @@ Un problème de DNS.
 ```
 
 > 📸 **Capture d'écran 2** : Insérez votre capture des tests ping
->
-> ![alt text](ScreenShots/ping_127.0.0.1.png)
-> 
->**Capture 2a – Résultat de la commande   `ping -c 4 127.0.0.1` sous WSL**
->
->![alt text](ScreenShots/ping_172.25.48.1.png)
->
->**Capture 2b – Résultat de la commande   `ping -c 4 172.25.48.1` sous WSL**
->
-> ![alt text](ScreenShots/ping_8.8.8.8.png)
-> 
->**Capture 2c – Résultat de la commande   `ping -c 4 8.8.8.8` sous WSL**
+>![alt text](captures/capture2_ping.png)
 
 ---
 
@@ -187,35 +164,25 @@ Un problème de DNS.
 
 ### a) Table ARP
 
-**Commande utilisée :** `arp`
+**Commande utilisée :** `arp.exe -a`
 
-**Nombre d'entrées :** 2
+**Nombre d'entrées :** 19
 
-**Une entrée (IP et MAC) :** Jaska.mshome.net et 00:15:5d:74:ec:c1
+**Une entrée (IP et MAC) :** IP: 10.0.0.1 MAC: 88-9e-68-a1-d9-16
+
 
 ### b) Requête DNS pour www.collegemaisonneuve.qc.ca
 
-**Commande utilisée :** `nslookup www.collegemaisonneuve.qc.ca`
+**Commande utilisée :** `nslookup www.cmaisonneuve.qc.ca`
 
-**Adresse IP obtenue :** Aucune, serveur ne trouve pas le NXDOMAIN.
+**Adresse IP obtenue :** IP: 151.101.138.132
 
 ### c) Commande `dig` pour github.com - TTL
 
-**TTL (Time To Live) de l'enregistrement :** 41 secondes
+**TTL (Time To Live) de l'enregistrement :** 60 secondes
 
 > 📸 **Capture d'écran 3** : Insérez votre capture de la table ARP et d'une requête DNS
-> 
-> ![alt text](ScreenShots/arp.png)
-> 
-> **Capture 3a – Résultat de la commande   `arp` sous WSL**
-> 
->![alt text](ScreenShots/nslookup_college.png)
->
-> **Capture 3b – Résultat de la commande   `nslookup www.collegemaisonneuve.qc.ca` sous WSL**
-> 
->![alt text](ScreenShots/dig_GitHub.png)
->
-> **Capture 3c – Résultat de la commande   `dig github.com` sous WSL**
+> ![alt text](captures/capture3_arp_dns.png)
 
 ---
 
@@ -237,16 +204,11 @@ Un problème de DNS.
 ### Question : Différence entre le Type ICMP d'un "Echo Request" et d'un "Echo Reply" ?
 
 ```
-Votre réponse : L'un envoie 
-
-
+Votre réponse : L'Echo Request est un message ICMP envoyé pour tester la connectivité, tandis que l'Echo Reply est la réponse envoyée lorsqu'un appareil rec¸oit cette requête.
 ```
 
 > 📸 **Capture d'écran 4** : Capture Wireshark montrant les paquets ICMP avec le détail d'un paquet
->
->![alt text](ScreenShots/WireShark_ICMP.png)
->
->**Capture 4 – Résultat du filtre ICMP dans l'application avec Wireshark lors d'un ping à l'adresse IP 8.8.8.8**
+>![alt text](captures/capture4_wireshark.icmp.png)
 
 ---
 
@@ -263,10 +225,7 @@ Votre réponse : L'un envoie
 | Adresse IP dans la réponse | 140.82.114.4    |
 
 > 📸 **Capture d'écran 5** : Capture Wireshark montrant la requête et réponse DNS
->
->![alt text](ScreenShots/WireShark_DNS.png)
->
-> **Capture 5 – Résultat du filtre DNS dans l'application avec Wireshark  lors de la commande `nslookup www.github.com`**
+>![alt text](captures/capture5_wireshark_dns.png)
 
 ---
 
@@ -276,9 +235,9 @@ Votre réponse : L'un envoie
 
 |Information|ARP Request|ARP Reply|
 |---|---|---|
-|Adresse MAC source|||
-|Adresse MAC destination|||
-|Adresse IP recherchée|||
+|Adresse MAC source|00.15.5d:5f:32:45|00:15:5d:fe:e1:35|
+|Adresse MAC destination|ff:ff:ff:ff:ff:ff|00:15:5d:5f:32:45|
+|Adresse IP recherchée|172.25.48.1|172.25.48.1|
 
 ### Question : Pourquoi l'adresse MAC de destination dans l'ARP Request est-elle `ff:ff:ff:ff:ff:ff` ?
 
@@ -287,11 +246,7 @@ Votre réponse : Parce que l'adresse MAC n'est pas connue, donc la requête ARP 
 ```
 
 > 📸 **Capture d'écran 6** : Capture Wireshark montrant l'échange ARP
-
->
->![alt text](ScreenShots/ping_passerelle.png)
->
->**Capture 5 – Résultat du filtre ARP dans l'application avec Wireshark  lors de la commande ` ping-c 1 172.25.48.1`**
+![alt text](captures/capture6_wireshark_arp.png)
 
 ---
 
@@ -307,33 +262,32 @@ Votre réponse : Parce que l'adresse MAC n'est pas connue, donc la requête ARP 
 
 Cochez les fonctionnalités que vous avez implémentées :
 
-- [ ] Affichage du nom de l'hôte
-- [ ] Affichage de la date et heure
-- [ ] Affichage de la version du système
-- [ ] Affichage de l'adresse IP locale
-- [ ] Affichage de l'adresse de la passerelle
-- [ ] Affichage des serveurs DNS
-- [ ] Test de connectivité localhost
-- [ ] Test de connectivité passerelle
-- [ ] Test de connectivité Internet (8.8.8.8)
-- [ ] Test de résolution DNS (google.com)
-- [ ] Affichage de la table ARP
-- [ ] Résolution DNS de 2+ domaines
-- [ ] Gestion des erreurs (messages si échec)
-- [ ] Commentaires dans le code
-- [ ] Affichage clair avec titres de sections
+- [x] Affichage du nom de l'hôte
+- [x] Affichage de la date et heure
+- [x] Affichage de la version du système
+- [x] Affichage de l'adresse IP locale
+- [x] Affichage de l'adresse de la passerelle
+- [x] Affichage des serveurs DNS
+- [x] Test de connectivité localhost
+- [x] Test de connectivité passerelle
+- [x] Test de connectivité Internet (8.8.8.8)
+- [x] Test de résolution DNS (google.com)
+- [x] Affichage de la table ARP
+- [x] Résolution DNS de 2+ domaines
+- [x] Gestion des erreurs (messages si échec)
+- [x] Commentaires dans le code
+- [x] Affichage clair avec titres de sections
 
 ### Difficultés rencontrées (optionnel)
 
 ```
-Décrivez ici les difficultés que vous avez rencontrées lors de la création du script :
+Décrivez ici les difficultés que vous avez rencontrées lors de la création du script : 
 
-
+Je suis quelqu’un qui apprend surtout en manipulant et en expérimentant. J’ai donc eu de la difficulté à comprendre certaines étapes du script simplement en regardant les exemples faits en classe. J’ai besoin de prendre du temps par moi‑même pour essayer, tester et assimiler la matière. La création du script m’a demandé un effort supplémentaire pour analyser les exercices et bien comprendre leur logique.
 ```
 
 > 📸 **Capture d'écran 7** : Capture montrant l'exécution de votre script
-> 
-> ![Capture 7](https://cmaisonneuveqcca.sharepoint.com/sites/A25-420911MA-25604/_layouts/15/captures/capture7_script_execution.png)
+> ![alt text](captures/capture7_script_execution.png)
 
 ---
 
@@ -343,15 +297,15 @@ Décrivez ici les difficultés que vous avez rencontrées lors de la création d
 
 Vérifiez que votre projet contient :
 
-- [ ] `reponse.md` (ce fichier complété)
-- [ ] `diagnostic_reseau.sh` (votre script)
-- [ ] `captures/capture1_config_reseau.png`
-- [ ] `captures/capture2_ping.png`
-- [ ] `captures/capture3_arp_dns.png`
-- [ ] `captures/capture4_wireshark_icmp.png`
-- [ ] `captures/capture5_wireshark_dns.png`
-- [ ] `captures/capture6_wireshark_arp.png`
-- [ ] `captures/capture7_script_execution.png`
+- [x] `reponse.md` (ce fichier complété)
+- [x] `diagnostic_reseau.sh` (votre script)
+- [x] `captures/capture1_config_reseau.png`
+- [x] `captures/capture2_ping.png`
+- [x] `captures/capture3_arp_dns.png`
+- [x] `captures/capture4_wireshark_icmp.png`
+- [x] `captures/capture5_wireshark_dns.png`
+- [x] `captures/capture6_wireshark_arp.png`
+- [x] `captures/capture7_script_execution.png`
 
 ---
 
