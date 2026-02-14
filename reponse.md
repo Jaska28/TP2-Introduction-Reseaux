@@ -218,7 +218,7 @@ L'Echo Request est un message ICMP envoyé pour tester la connectivité, tandis 
 
 > 📸 **Capture d'écran 4** : Capture Wireshark montrant les paquets ICMP avec le détail d'un paquet
 > 
->![alt text](captures/capture4_wireshark.icmp.png)
+>![alt text](captures/capture4_wireshark_icmp.png)
 
 ---
 
@@ -323,5 +323,6 @@ Vérifiez que votre projet contient :
 ---
 
 ---
+
 
 _Bon travail !_
