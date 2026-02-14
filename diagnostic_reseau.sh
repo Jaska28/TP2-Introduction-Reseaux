@@ -111,7 +111,7 @@ test_connectivity(){
         print_error "Erreur lors du test de localhost $PING_RESULT"
     fi
 
-    # Passerelle par défaut
+    # Passerelle par défaut.
     GATEWAY=$(ip route | grep default | awk '{print $3}')
     if PING_RESULT=$(ping -c 4 -W 2 $GATEWAY 2>/dev/null); then
         print_success "Test de la passerelle par défaut ($GATEWAY) réussi!" ""

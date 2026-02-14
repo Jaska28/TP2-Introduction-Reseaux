@@ -42,7 +42,8 @@
 ### b) Différence entre le modèle OSI et TCP/IP (2.5 pts)
 
 ```
-Votre réponse : Le modèle OSI est un modèle théorique en sept couches conçu pour expliquer et standardiser le fonctionnement des réseaux. Le modèle TCP/IP regroupe ces fonctions en quatre couches. OSI est surtout utilisé comme modèle pédagogique, tandis que TCP/IP représente l’architecture réelle utilisée dans les réseaux.
+Votre réponse : 
+Le modèle OSI est un modèle théorique en sept couches conçu pour expliquer et standardiser le fonctionnement des réseaux. Le modèle TCP/IP regroupe ces fonctions en 4 couches. OSI est surtout utilisé comme modèle pédagogique, tandis que TCP/IP représente l’architecture réelle utilisée dans les réseaux.
 ```
 
 ---
@@ -62,7 +63,8 @@ Votre réponse : Le modèle OSI est un modèle théorique en sept couches conçu
 ### b) Qu'est-ce qu'un masque de sous-réseau ? À quoi sert-il ? (2.5 pts)
 
 ```
-Votre réponse : Le masque de sous-réseau nous dit si une adresse IP est sur le même réseau local ou si on doit passer par un gateway.
+Votre réponse : 
+Le masque de sous-réseau nous dit si une adresse IP est sur le même réseau local ou si on doit passer par un gateway.
 ```
 
 ---
@@ -72,25 +74,29 @@ Votre réponse : Le masque de sous-réseau nous dit si une adresse IP est sur le
 ### a) Expliquez le fonctionnement du protocole ARP. Pourquoi est-il nécessaire ? (3 pts)
 
 ```
-Votre réponse : Protocole qui fait le lien entre les adresses IP et les adresses MAC dans un réseau local. L'ARP garde en mémoire temporairement ces liens et dirige les packets à la bonne machine. Quand un appareil veut communiquer avec un adresse IP, il envoie une requête ARP sur le réseau pour demander c'est quel machine qui a cette adresse. Par la suite, ARP garde en mémoire temporairement l'information pour que les paquets soient envoyés directement.
+Votre réponse : 
+Protocole qui fait le lien entre les adresses IP et les adresses MAC dans un réseau local. L'ARP garde en mémoire temporairement ces liens et dirige les packets à la bonne machine. Quand un appareil veut communiquer avec un adresse IP, il envoie une requête ARP sur le réseau pour demander c'est quel machine qui a cette adresse. Par la suite, ARP garde en mémoire temporairement l'information pour que les paquets soient envoyés directement.
 ```
 
 ### b) Différence entre une requête DNS de type A et de type AAAA ? (2 pts)
 
 ```
-Votre réponse : DNS de type A est pour IPv4 et AAAA pour IPv6. IPv6 existe au cas où qu'on manquerait d'adresse IPv4, ce qui va arriver bientôt.
+Votre réponse : 
+DNS de type A est pour IPv4 et AAAA pour IPv6. IPv6 existe au cas où qu'on manquerait d'adresse IPv4, ce qui va arriver bientôt.
 ```
 
 ### c) Expliquez ce que fait la commande `ping` au niveau du protocole ICMP. Quels types de messages sont échangés ? (3 pts)
 
 ```
-Votre réponse : Les types de messages de ping sont Echo Request et Echo Reply avec le protocole ICMP pour tester la connectivité. On envoie une requête à l'adresse spécifiée et elle répond si le paquet a été reçu.
+Votre réponse : 
+Les types de messages de ping sont Echo Request et Echo Reply avec le protocole ICMP pour tester la connectivité. On envoie une requête à l'adresse spécifiée et elle répond si le paquet a été reçu.
 ```
 
 ### d) Sur quel port et avec quel protocole de transport fonctionne DNS par défaut ? Pourquoi ce choix ? (2 pts)
 
 ```
-Votre réponse : Par défaut, DNS utilise le port 53 avec le protocole UDP. Ce choix permet de gagner en rapidié par rapport au protocole TCP.
+Votre réponse : 
+Par défaut, DNS utilise le port 53 avec le protocole UDP. Ce choix permet de gagner en rapidié par rapport au protocole TCP.
 ```
 
 ---
@@ -122,6 +128,7 @@ Votre réponse : Par défaut, DNS utilise le port 53 avec le protocole UDP. Ce c
 **Serveurs DNS configurés :**`10.255.255.254`
 
 > 📸 **Capture d'écran 1** : Insérez votre capture montrant la configuration réseau
+> 
 > ![alt text](captures/capture1_config_reseau.png)
 ---
 
@@ -145,17 +152,17 @@ Votre réponse : Par défaut, DNS utilise le port 53 avec le protocole UDP. Ce c
 
 **Résultat (succès/échec) :** Succès
 
-**Temps moyen de réponse :** 21.42ms
+**Temps moyen de réponse :** 17ms
 
 ### d) Si le ping vers 8.8.8.8 fonctionne mais pas vers google.com, quel serait le problème probable ?
 
 ```
 Votre réponse :
-Un problème de DNS.
-
+La connectivité réseau est bonne, mais la résolution de noms (DNS) ne fonctionne pas. La conversion du nom du domaine en adresse IP ne se fait pas.
 ```
 
 > 📸 **Capture d'écran 2** : Insérez votre capture des tests ping
+> 
 >![alt text](captures/capture2_ping.png)
 
 ---
@@ -168,10 +175,10 @@ Un problème de DNS.
 
 **Nombre d'entrées :** 19
 
-**Une entrée (IP et MAC) :** IP: 10.0.0.1 MAC: 88-9e-68-a1-d9-16
+**Une entrée (IP et MAC) :** **IP:** 10.0.0.1 **MAC:** 88-9e-68-a1-d9-16
 
 
-### b) Requête DNS pour www.collegemaisonneuve.qc.ca
+### b) Requête DNS pour www.cmaisonneuve.qc.ca
 
 **Commande utilisée :** `nslookup www.cmaisonneuve.qc.ca`
 
@@ -182,6 +189,7 @@ Un problème de DNS.
 **TTL (Time To Live) de l'enregistrement :** 60 secondes
 
 > 📸 **Capture d'écran 3** : Insérez votre capture de la table ARP et d'une requête DNS
+> 
 > ![alt text](captures/capture3_arp_dns.png)
 
 ---
@@ -204,10 +212,12 @@ Un problème de DNS.
 ### Question : Différence entre le Type ICMP d'un "Echo Request" et d'un "Echo Reply" ?
 
 ```
-Votre réponse : L'Echo Request est un message ICMP envoyé pour tester la connectivité, tandis que l'Echo Reply est la réponse envoyée lorsqu'un appareil rec¸oit cette requête.
+Votre réponse : 
+L'Echo Request est un message ICMP envoyé pour tester la connectivité, tandis que l'Echo Reply est la réponse envoyée lorsqu'un appareil reçoit cette requête.
 ```
 
 > 📸 **Capture d'écran 4** : Capture Wireshark montrant les paquets ICMP avec le détail d'un paquet
+> 
 >![alt text](captures/capture4_wireshark.icmp.png)
 
 ---
@@ -225,6 +235,7 @@ Votre réponse : L'Echo Request est un message ICMP envoyé pour tester la conne
 | Adresse IP dans la réponse | 140.82.114.4    |
 
 > 📸 **Capture d'écran 5** : Capture Wireshark montrant la requête et réponse DNS
+> 
 >![alt text](captures/capture5_wireshark_dns.png)
 
 ---
@@ -246,6 +257,7 @@ Votre réponse : Parce que l'adresse MAC n'est pas connue, donc la requête ARP 
 ```
 
 > 📸 **Capture d'écran 6** : Capture Wireshark montrant l'échange ARP
+> 
 ![alt text](captures/capture6_wireshark_arp.png)
 
 ---
@@ -283,10 +295,11 @@ Cochez les fonctionnalités que vous avez implémentées :
 ```
 Décrivez ici les difficultés que vous avez rencontrées lors de la création du script : 
 
-Je suis quelqu’un qui apprend surtout en manipulant et en expérimentant. J’ai donc eu de la difficulté à comprendre certaines étapes du script simplement en regardant les exemples faits en classe. J’ai besoin de prendre du temps par moi‑même pour essayer, tester et assimiler la matière. La création du script m’a demandé un effort supplémentaire pour analyser les exercices et bien comprendre leur logique.
+J’ai dû réviser les codes faits en classe, car je ne voulais pas simplement faire du copier‑coller. J’ai pris le temps de bien comprendre les commandes.
 ```
 
 > 📸 **Capture d'écran 7** : Capture montrant l'exécution de votre script
+> 
 > ![alt text](captures/capture7_script_execution.png)
 
 ---
